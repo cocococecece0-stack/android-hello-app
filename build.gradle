@@ -1,6 +1,4 @@
-plugins {
-    id 'com.android.application' version '8.1.2' apply true
-}
+apply plugin: 'com.android.application'
 
 repositories {
     google()
