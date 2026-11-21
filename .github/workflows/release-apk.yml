@@ -20,12 +20,11 @@ jobs:
         java-version: '21'
     
     - name: Set up Android SDK
-      uses: android-actions/setup-android@v3
+      uses: google/setup-android@v2
       with:
-        cmdline-tools-version: latest
-        accept-android-sdk-licenses: true
-        log-accepted-android-sdk-licenses: true
-        packages: platform-tools
+        api-level: 35
+        install-components: 'platform-tools,build-tools;35.0.0'
+        accept-licenses: true
     
     - name: Cache Gradle
       uses: actions/cache@v3
