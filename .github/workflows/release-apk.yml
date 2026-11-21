@@ -2,9 +2,9 @@ name: Build and Release APK
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -34,6 +34,7 @@ jobs:
       uses: reactivecircus/android-emulator-runner@v2
       with:
         api-level: 35
+        avd-skin: wide
         
     - name: Build APK
       run: ./gradlew assembleRelease
@@ -47,7 +48,7 @@ jobs:
   release:
     needs: build
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     
     steps:
     - uses: actions/checkout@v3
